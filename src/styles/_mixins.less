@@ -1,0 +1,51 @@
+.disabled(
+  @color: @disabled-color,
+  @bg-color: @disabled-bg,
+  @bd-color: @disabled-bd-color) {
+  &-disabled,
+  &-disabled:hover,
+  &-disabled:active,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:active {
+    color: @color;
+    background-color: @bg-color;
+    border-color: @bd-color;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: .7;
+
+    >* {
+      pointer-events: none;
+    }
+  }
+}
+
+.active-style(@background,
+  @border,
+  @color,
+  @hover-background: lighten(@background, 10%),
+  @hover-border: lighten(@border, 10%),
+  @hover-color: @color,
+) {
+
+  &:hover {
+    color: @hover-color;
+    background: @hover-background;
+    border-color: @hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    color: @hover-color;
+    background: @hover-background;
+    border-color: @hover-border;
+  }
+
+  &:active,
+  &:active {
+    color: @hover-color;
+    background: @hover-background;
+    border-color: @hover-border;
+  }
+}

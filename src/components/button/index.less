@@ -1,0 +1,60 @@
+@import '../../styles/index.less';
+
+
+@btn-prefix-cls: ~'@{l-prefix}-btn';
+
+.@{btn-prefix-cls} {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  line-height: @line-height-base;
+  padding: @btn-padding;
+  font-size: @font-size-base;
+  color: @body-color;
+  font-weight: @font-weight-normal;
+  border: @border-color @btn-border-width solid;
+  border-radius: @btn-raduis;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  transition: @btn-transition;
+  .active-style(transparent, @primary-color, @body-color);
+  .disabled();
+
+  &.@{btn-prefix-cls}-primary {
+    background: @primary-color;
+    color: @white-color;
+    .active-style(@primary-color, @primary-color, @white-color);
+    .disabled(@white-color, @primary-color, @primary-color);
+  }
+
+  &.@{btn-prefix-cls}-dashed {
+    border-style: dashed;
+    .active-style(transparent, @primary-color, @primary-color);
+    .disabled(transparent, @primary-color, @primary-color);
+  }
+
+  &.@{btn-prefix-cls}-danger {
+    background-color: @btn-danger-color;
+    border-color: @btn-danger-color;
+    color: @white-color;
+    .active-style(@btn-danger-color, @btn-danger-color, @white-color);
+    .disabled(@white-color, @btn-danger-color, @btn-danger-color);
+  }
+
+  &.@{btn-prefix-cls}-link {
+    border: none;
+    color: @btn-link-color;
+
+    &:hover {
+      color: @btn-link-hover-color;
+      text-decoration: @link-hover-decoration;
+    }
+
+    .disabled(@btn-link-color, @white-color, @white-color);
+  }
+}

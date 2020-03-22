@@ -1,0 +1,20 @@
+{
+  "devDependencies": {
+    "father": "^2.29.2"
+  },
+  "scripts": {
+    "dev": "father doc dev",
+    "start": "yarn dev",
+    "doc-build": "father doc build",
+    "build": "father build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.9.0",
+    "@types/classnames": "^2.2.10",
+    "classnames": "^2.2.6",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "react": "^16.13.1",
+    "typescript": "^3.8.3"
+  }
+}
