@@ -15,6 +15,7 @@ interface BaseButtonProps {
   btnType?: BtnType,
   danger?: boolean,
   href?: string
+  prefixCls?: string
 }
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
@@ -24,7 +25,6 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   const context = useContext(ConfigContext)
   const { getPrefixCls } = context
-  const prefix = getPrefixCls('btn')
 
   const {
     disabled = false,
@@ -33,8 +33,11 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     danger = false,
     href,
     children,
+    prefixCls,
     ...restProps
   } = props
+  const prefix = getPrefixCls('btn', prefixCls)
+  
   const classNames = classnames(prefix, className, {
     [`${prefix}-${btnType}`]: btnType,
     [`${prefix}-disabled`]: disabled,

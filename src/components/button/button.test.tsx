@@ -25,7 +25,7 @@ describe('test button', () => {
   test('test button is disabled', () => {
     const btnProps: ButtonProps = {
       disabled: true,
-      onClick:jest.fn()
+      onClick: jest.fn()
     }
     const wrapper = render(<Button {...btnProps}>{text}</Button>)
     const element = wrapper.getByText(text) as HTMLButtonElement
@@ -42,5 +42,11 @@ describe('test button', () => {
     const wrapper = render(<Button btnType={BtnType.link}>{text}</Button>)
     const element = wrapper.getByText(text) as HTMLAnchorElement
     expect(element.tagName).toBe('A')
+  })
+  test('test button pre-fix', () => {
+    const prefix = 'hh'
+    const wrapper = render(<Button prefixCls={prefix}>{text}</Button>)
+    const element = wrapper.getByText(text) as HTMLAnchorElement
+    expect(element).toHaveClass(`${prefix}-${BtnType.default}`)
   })
 })
