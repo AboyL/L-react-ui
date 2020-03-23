@@ -1,30 +1,33 @@
-import React, { useContext, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react'
+import React, {
+  useContext,
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+} from 'react';
 import classnames from 'classnames';
-import { ConfigContext } from '../config-provider'
+import { ConfigContext } from '../Config-provider';
 
 export enum BtnType {
   default = 'default',
-  primary = "primary",
-  dashed = "dashed",
-  link = 'link'
+  primary = 'primary',
+  dashed = 'dashed',
+  link = 'link',
 }
 
 interface BaseButtonProps {
-  disabled?: boolean
-  className?: string
-  btnType?: BtnType,
-  danger?: boolean,
-  href?: string
-  prefixCls?: string
+  disabled?: boolean;
+  className?: string;
+  btnType?: BtnType;
+  danger?: boolean;
+  href?: string;
+  prefixCls?: string;
 }
-type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
-type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
-export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
-
+type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
+type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
-  const context = useContext(ConfigContext)
-  const { getPrefixCls } = context
+  const context = useContext(ConfigContext);
+  const { getPrefixCls } = context;
 
   const {
     disabled = false,
@@ -35,32 +38,26 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     children,
     prefixCls,
     ...restProps
-  } = props
-  const prefix = getPrefixCls('btn', prefixCls)
-  
+  } = props;
+  const prefix = getPrefixCls('btn', prefixCls);
+
   const classNames = classnames(prefix, className, {
     [`${prefix}-${btnType}`]: btnType,
     [`${prefix}-disabled`]: disabled,
-    [`${prefix}-danger`]: danger
-  })
+    [`${prefix}-danger`]: danger,
+  });
   if (btnType === BtnType.link) {
-    return <a
-      className={classNames}
-      href={href}
-      {...restProps}
-    >
-      {children}
-    </a>
+    return (
+      <a className={classNames} href={href} {...restProps}>
+        {children}
+      </a>
+    );
   }
   return (
-    <button
-      className={classNames}
-      disabled={disabled}
-      {...restProps}
-    >
+    <button className={classNames} disabled={disabled} {...restProps}>
       {children}
-    </button >
-  )
-}
+    </button>
+  );
+};
 
-export default Button
+export default Button;
