@@ -1,5 +1,5 @@
-import { createContext } from 'react'
-import { PRE_FIX } from '../../utils/constants'
+import { createContext } from 'react';
+import { PRE_FIX } from '../../utils/constants';
 export interface ConfigConsumerProps {
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => string;
 }
@@ -9,5 +9,4 @@ export const ConfigContext = createContext<ConfigConsumerProps>({
     if (customizePrefixCls) return customizePrefixCls;
     return `${PRE_FIX}-${suffixCls}`;
   },
-
 });

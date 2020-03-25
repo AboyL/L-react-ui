@@ -1,5 +1,4 @@
-.disabled(
-  @color: @disabled-color,
+.disabled(@color: @disabled-color,
   @bg-color: @disabled-bg,
   @bd-color: @disabled-bd-color) {
   &-disabled,
@@ -8,14 +7,15 @@
   &[disabled],
   &[disabled]:hover,
   &[disabled]:active {
+    font-weight: normal;
     color: @color;
     background-color: @bg-color;
     border-color: @bd-color;
     cursor: not-allowed;
     box-shadow: none;
-    opacity: .7;
+    opacity: 0.7;
 
-    >* {
+    > * {
       pointer-events: none;
     }
   }
@@ -28,7 +28,6 @@
   @hover-border: lighten(@border, 10%),
   @hover-color: @color,
 ) {
-
   &:hover {
     color: @hover-color;
     background: @hover-background;

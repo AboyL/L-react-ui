@@ -1,1 +1,1 @@
-export const PRE_FIX='lixingzhi'
+export const PRE_FIX = 'lixingzhi';
