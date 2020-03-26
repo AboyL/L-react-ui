@@ -1,22 +1,35 @@
 @menu-prefix-cls: ~'@{l-prefix}-menu';
 
+.menu-inline(@type) {
+  &::after {
+    content: '';
+    transition: @menu-inline-transition;
+    position: absolute;
+    left: if(@type= 'horizontal', 50%, 0);
+    bottom: if(@type= 'horizontal', 0, 50%);
+    transform: if(@type= 'horizontal', translateX(-50%), translateY(50%));
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+}
+
 .menu-active(@color, @type: 'horizontal') {
   color: @color;
   font-weight: @menu-active-font-weight;
 
   &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
     width: if(@type= 'horizontal', 100%, @menu-item-left-width);
     height: if(@type= 'horizontal', @menu-item-bottom-height, 100%);
     background-color: @menu-item-bottom-color;
+    opacity: 1;
   }
 }
 
 .menu-item(@type) {
   .@{menu-prefix-cls}-item {
+    .menu-inline(@type);
+
     &:hover {
       color: @menu-hover-color;
       font-weight: @menu-active-font-weight;
