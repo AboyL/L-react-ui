@@ -21,3 +21,4 @@
 src/.umi
 lib/
 es/
+coverage/

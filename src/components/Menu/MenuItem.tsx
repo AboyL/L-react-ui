@@ -32,7 +32,7 @@ const MenuItem: React.FC<MenuItemProps> = props => {
   const prefix = getPrefixCls('menu-item', prefixCls);
   const classNames = classnames(prefix, className, {
     [`${prefix}-disabled`]: disabled,
-    [`${prefix}-actived`]: menuContext.activeKey === activeKey,
+    [`${prefix}-active`]: menuContext.activeKey === activeKey,
   });
 
   return (

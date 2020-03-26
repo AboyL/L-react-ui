@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, HTMLAttributes } from 'react';
 import classnames from 'classnames';
 import { ConfigContext } from '../Config-provider';
 import menuContext from './menuContext';
@@ -10,14 +10,13 @@ export enum menuMode {
   vertical = 'vertical',
 }
 
-interface MenuProps {
+interface baseMenuProps {
   mode?: menuMode;
   defaultActiveKey?: string;
   onSelect: selectFunc;
   prefixCls?: string;
-  className?: string;
 }
-
+export type MenuProps = baseMenuProps & HTMLAttributes<HTMLElement>;
 const Menu: React.FC<MenuProps> = props => {
   const {
     mode = menuMode.horizontal,
@@ -25,6 +24,7 @@ const Menu: React.FC<MenuProps> = props => {
     onSelect = () => {},
     prefixCls,
     className,
+    ...rest
   } = props;
 
   const context = useContext(ConfigContext);
@@ -46,7 +46,9 @@ const Menu: React.FC<MenuProps> = props => {
 
   return (
     <menuContext.Provider value={menuContextValue}>
-      <ul className={classNames}>{props.children}</ul>
+      <ul {...rest} className={classNames}>
+        {props.children}
+      </ul>
     </menuContext.Provider>
   );
 };
