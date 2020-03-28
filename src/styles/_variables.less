@@ -15,11 +15,14 @@
 // 字重
 @font-weight-normal: 400;
 @font-weight-base: @font-weight-normal;
-
 // 行高
 @line-height-base: 1.5;
-
+// 圆角
 @radius: 2px;
+// z-index 层次
+@zIndex1: 9;
+@zIndex2: 99;
+@zIndex3: 999;
 
 // 按钮
 @btn-border-width: 1px;
@@ -36,10 +39,11 @@
 @menu-active-color: @primary-color;
 @menu-active-font-weight: 500;
 @menu-hover-color: @menu-active-color;
-@menu-item-bottom-color: @menu-active-color; //游标颜色
+@menu-item-tag-color: @menu-active-color; //游标颜色
+@menu-item-tag-bg-color: lighten(@menu-active-color, 35%);
 
-@menu-item-bottom-height: 2px;
-@menu-item-left-width: @menu-item-bottom-height;
+@menu-item-horizontal-height: 2px;
+@menu-item-vertical-width: @menu-item-horizontal-height;
 @menu-inline-transition: all 0.15s;
 @menu-item-padding-y: 10px;
 @menu-item-padding-x: 20px;

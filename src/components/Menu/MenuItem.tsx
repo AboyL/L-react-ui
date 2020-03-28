@@ -19,21 +19,21 @@ const MenuItem: React.FC<MenuItemProps> = props => {
     className,
   } = props;
 
-  const configContext = useContext(ConfigContext);
   const menuContext = useContext(MenuContext);
 
-  const handleClick = () => {
-    if (!disabled && isFunction(menuContext.onSelect)) {
-      menuContext.onSelect(activeKey);
-    }
-  };
-
+  const configContext = useContext(ConfigContext);
   const { getPrefixCls } = configContext;
   const prefix = getPrefixCls('menu-item', prefixCls);
   const classNames = classnames(prefix, className, {
     [`${prefix}-disabled`]: disabled,
     [`${prefix}-active`]: menuContext.activeKey === activeKey,
   });
+
+  const handleClick = () => {
+    if (!disabled && isFunction(menuContext.onSelect)) {
+      menuContext.onSelect(activeKey);
+    }
+  };
 
   return (
     <li className={classNames} onClick={handleClick}>
