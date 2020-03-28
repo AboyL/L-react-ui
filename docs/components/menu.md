@@ -8,18 +8,20 @@ import 'convection/styles/index.less';
 export default () => (
   <div>
     <Menu defaultActiveKey="1">
-      <MenuItem activeKey="1">子菜单项0</MenuItem>
-      <MenuItem activeKey="2" disabled>
+      <MenuItem activeKey="0">子菜单项0</MenuItem>
+      <MenuItem activeKey="1" disabled>
         子菜单项1
       </MenuItem>
-      <MenuItem activeKey="3">子菜单项2</MenuItem>
+      <MenuItem activeKey="2">子菜单项2</MenuItem>
+      <div>非MenuItem组件不会进行渲染</div>
+      <MenuItem>默认key值为对应的index 此时为4</MenuItem>
     </Menu>
     <Menu mode="vertical" defaultActiveKey="2">
-      <MenuItem activeKey="1">子菜单项0</MenuItem>
-      <MenuItem activeKey="2" disabled>
+      <MenuItem activeKey="0">子菜单项0</MenuItem>
+      <MenuItem activeKey="1" disabled>
         子菜单项1
       </MenuItem>
-      <MenuItem activeKey="3">子菜单项2</MenuItem>
+      <MenuItem activeKey="2">子菜单项2</MenuItem>
     </Menu>
   </div>
 );

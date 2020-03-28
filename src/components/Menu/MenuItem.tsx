@@ -3,9 +3,9 @@ import classnames from 'classnames';
 import { ConfigContext } from '../Config-provider';
 import MenuContext from './menuContext';
 import { isFunction } from 'lodash';
-
-interface MenuItemProps {
-  activeKey: string;
+import { MENU_ITEM_DISPLAY_NAME } from './constants';
+export interface MenuItemProps {
+  activeKey?: string;
   disabled?: boolean;
   prefixCls?: string;
   className?: string;
@@ -41,5 +41,5 @@ const MenuItem: React.FC<MenuItemProps> = props => {
     </li>
   );
 };
-
+MenuItem.displayName = MENU_ITEM_DISPLAY_NAME;
 export default MenuItem;
