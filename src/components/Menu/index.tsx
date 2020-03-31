@@ -6,6 +6,7 @@ import { isFunction } from 'lodash';
 import { MENU_ITEM_DISPLAY_NAME, SUB_MENU_DISPLAY_NAME } from './constants';
 import { renderChildren } from './utils';
 import { MenuItemProps } from './MenuItem';
+
 export type selectFunc = (key: string) => void;
 export enum menuMode {
   horizontal = 'horizontal',
@@ -20,7 +21,7 @@ interface baseMenuProps {
 }
 export type MenuProps = baseMenuProps & HTMLAttributes<HTMLElement>;
 
-const Menu: React.FC<MenuProps> = props => {
+const Menu: React.FC<MenuProps> = (props) => {
   const {
     mode = menuMode.horizontal,
     defaultActiveKey = '',

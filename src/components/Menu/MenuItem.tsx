@@ -11,7 +11,7 @@ export interface MenuItemProps {
   className?: string;
 }
 
-const MenuItem: React.FC<MenuItemProps> = props => {
+const MenuItem: React.FC<MenuItemProps> = (props) => {
   const {
     disabled = false,
     activeKey: activeKey,

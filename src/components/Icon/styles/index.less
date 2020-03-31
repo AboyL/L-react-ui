@@ -1,0 +1,17 @@
+@icon-prefix-cls: ~'@{l-prefix}-icon';
+
+@theme: {
+  primary: @icon-primary-color;
+  danger: @icon-danger-color;
+  success: @icon-success-color;
+};
+
+.@{icon-prefix-cls} {
+  each(@theme, {
+      &-@{key} {
+        color:@value;
+      }
+    }
+
+  );
+}

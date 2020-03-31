@@ -3,6 +3,7 @@ import React, {
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
 } from 'react';
+
 import classnames from 'classnames';
 import { ConfigContext } from '../Config-provider';
 
@@ -26,8 +27,8 @@ type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
-  const context = useContext(ConfigContext);
-  const { getPrefixCls } = context;
+  const configContext = useContext(ConfigContext);
+  const { getPrefixCls } = configContext;
 
   const {
     disabled = false,

@@ -13,7 +13,7 @@ export interface BaseSubMenuProps {
 
 type SubMenuProps = BaseSubMenuProps & React.LiHTMLAttributes<HTMLElement>;
 
-const SubMenu: React.FC<SubMenuProps> = props => {
+const SubMenu: React.FC<SubMenuProps> = (props) => {
   const { title, prefixCls, className, children } = props;
   const menuContext = useContext(MenuContext);
   const { mode } = menuContext;
@@ -40,7 +40,9 @@ const SubMenu: React.FC<SubMenuProps> = props => {
   const { getPrefixCls } = configContext;
   const prefix = getPrefixCls('menu-sub-menu', prefixCls);
   const classNames = classnames(prefix, className, {
-    [`${prefix}-active`]: activeKeyList.find(v => v === menuContext.activeKey),
+    [`${prefix}-active`]: activeKeyList.find(
+      (v) => v === menuContext.activeKey,
+    ),
     [`${prefix}-${mode}`]: mode,
   });
   const subMenuContentClassPre = getPrefixCls(
